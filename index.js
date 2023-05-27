@@ -6,29 +6,11 @@ function findMatching(drivers, string) {
     });
 }
 
-// function fuzzyMatch(arrayOfDrivers, string) {
-//     let newArray = arrayOfDrivers.filter((name) => {
-//         let newArray2 = arrayOfDrivers.filter((name) => {
-//             if (name[0] === "S") {
-//                 return newArray
-//             } else if (name[0] === "T") {
-//                 return newArray2
-//             }
-//         })
-//     })
-//     return newArray
-// }
-
-
-function fuzzyMatch(arrayOfDrivers, string) {
-    let newArray = arrayOfDrivers.filter((name) => {
-        if (name[0] === string) {
-            return name
-        } else if (name[0] != string) {
-            return false
-        }
-    })
-    return newArray
+function fuzzyMatch(arrayOfDrivers, letters) {
+    let lengthOfLetters = letters.length;
+    return arrayOfDrivers.filter(function (name) {
+        return name.slice(0, lengthOfLetters) === letters;
+    });
 }
 
 function matchName(arrayOfDrivers) {
